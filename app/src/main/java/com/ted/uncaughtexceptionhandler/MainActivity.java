@@ -10,6 +10,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.tencent.bugly.crashreport.CrashReport;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             checkPermission();
         }
+        CrashReport.testJavaCrash();
     }
 
     /**
@@ -45,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this,
-                    new String []{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    new String []{Manifest.permission.READ_EXTERNAL_STORAGE,
+                                Manifest.permission.READ_PHONE_STATE},
                     PERMISSION_REQUEST_CODE);
         }
     }

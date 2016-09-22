@@ -3,6 +3,7 @@ package com.ted.uncaughtexceptionhandler;
 import android.app.Application;
 
 import com.ted.myuncaughtexceptionhandler.CrashHandler;
+import com.tencent.bugly.crashreport.CrashReport;
 
 //import com.ted.myuncaughtexceptionhandler.CrashHandler;
 
@@ -32,8 +33,10 @@ public class MyApplication extends Application {
         super.onCreate();
 
         sInstance = this;
-        CrashHandler crashHandler = CrashHandler.getInstance();
-        crashHandler.init(this);
+        //CrashHandler crashHandler = CrashHandler.getInstance();
+        //crashHandler.init(this);
+
+        CrashReport.initCrashReport(getApplicationContext(),"900054674", true);
     }
 
     public static MyApplication getInstance(){
