@@ -1,7 +1,9 @@
 package com.ted.uncaughtexceptionhandler;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -27,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        checkPermission();
+        //当Android SDK版本 是M及以上时，进行权限检测
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            checkPermission();
+        }
     }
 
     /**
