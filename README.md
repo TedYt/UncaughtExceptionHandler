@@ -64,3 +64,5 @@
      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
         ...
      }
+
+3. 添加腾讯的Bugly调试
